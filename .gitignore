@@ -2,5 +2,4 @@
 .terraform/
 *.auto.tfvars
 *.tfvars
-
-
+backend.tf
