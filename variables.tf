@@ -10,7 +10,7 @@ variable "profile" {
   default     = ""
 }
 
-variable "kms_key_ARN" {
+variable "kms_key_arn" {
   type        = string
   description = "KMS key ARN for aws backup vault"
 }

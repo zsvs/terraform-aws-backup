@@ -15,7 +15,7 @@ data "aws_organizations_organization" "this" {}
 
 resource "aws_backup_vault" "this" {
   name        = "this_backup_vault"
-  kms_key_arn = var.kms_key_ARN
+  kms_key_arn = var.kms_key_arn
   # tags        = var.backup_vault_tags
 }
 
