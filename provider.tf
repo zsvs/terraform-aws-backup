@@ -7,8 +7,3 @@
   }
   required_version = "1.4.6"
 }
-
-provider "aws" {
-  region  = var.region
-  profile = var.profile
-}

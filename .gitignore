@@ -3,3 +3,4 @@
 *.auto.tfvars
 *.tfvars
 backend.tf
+aws_provider.tf

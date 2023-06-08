@@ -32,11 +32,11 @@ variable "aws_backup_plan_rule_name" {
   default     = "MyBackupPlanRuleName"
 }
 
-# variable "backup_vault_tags" {
-#   type        = object()
-#   description = "Name of AWS backup resource"
-#   default     = {"terraform"}
-# }
+variable "backup_vault_tags" {
+  type        = map(string)
+  description = "Name of AWS backup resource"
+  default     = { "terraform" : "true" }
+}
 
 variable "rules" {
   type        = list(any)
@@ -45,20 +45,25 @@ variable "rules" {
 }
 
 variable "recovery_point_tags" {
-  type = object({
-    key   = string,
-    value = string
-  })
-
-  description = "Name of AWS backup resource"
-  default = {
-    key : "Name",
-    value : "TF_RECOVERY_POINT_TAG"
-  }
+  type        = map(string)
+  description = "Defines recovery points tags"
+  default     = { "terraform" : "true" }
 }
 
 variable "cross_account_backup_enabled" {
   type        = string
   description = "Enable cross account AWS backup"
   default     = "true"
+}
+
+variable "aws_backup_resources_names" {
+  type        = string
+  description = "Define name prefix of aws_backup_vault and aws_backup_plan"
+  default     = "MyBackup"
+}
+
+variable "aws_backup_selection_resource_name" {
+  type        = string
+  description = "Define the name of aws resources that displayed in plan"
+  default     = "MyResource"
 }

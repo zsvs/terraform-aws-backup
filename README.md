@@ -1,5 +1,5 @@
 <!-- BEGIN_TF_DOCS -->
-# Terraform module for AWS Backup service
+**Terraform module for AWS Backup service**
 
 ## Requirements
 

@@ -1,4 +1,5 @@
 ﻿locals {
+
   single_rule = [{
     name                     = "default_daily_rule"
     schedule                 = "cron(0 8 * * ? *)"
@@ -14,9 +15,9 @@
 data "aws_organizations_organization" "this" {}
 
 resource "aws_backup_vault" "this" {
-  name        = "this_backup_vault"
+  name        = "${var.aws_backup_resources_names}-Vault"
   kms_key_arn = var.kms_key_arn
-  # tags        = var.backup_vault_tags
+  tags        = var.backup_vault_tags
 }
 
 data "aws_iam_policy_document" "this" {
@@ -53,7 +54,7 @@ resource "aws_backup_global_settings" "this" {
 }
 
 resource "aws_backup_plan" "this" {
-  name = "tf_this_backup_plan"
+  name = "${var.aws_backup_resources_names}-Plan"
 
   dynamic "rule" {
     for_each = length(var.rules) > 0 ? var.rules : local.single_rule
@@ -89,8 +90,8 @@ resource "aws_backup_plan" "this" {
 }
 
 resource "aws_backup_selection" "this" {
-  iam_role_arn = var.aws_backup_iam_role_arn #! Create iam role in case if none of the roles provided
-  name         = "tf_this_backup_selection"
+  iam_role_arn = var.aws_backup_iam_role_arn
+  name         = var.aws_backup_selection_resource_name
   plan_id      = aws_backup_plan.this.id
 
   resources = var.aws_backup_selection_resources # select resources by arn
