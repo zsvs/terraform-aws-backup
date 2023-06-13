@@ -26,15 +26,15 @@ variable "aws_backup_selection_resources" {
   default     = []
 }
 
-variable "aws_backup_plan_rule_name" {
-  type        = string
-  description = "Name of AWS backup resource"
-  default     = "MyBackupPlanRuleName"
-}
+# variable "aws_backup_plan_rule_name" {
+#   type        = string
+#   description = "Name of AWS backup rule"
+#   default     = "MyBackupPlanRuleName"
+# }
 
 variable "backup_vault_tags" {
   type        = map(string)
-  description = "Name of AWS backup resource"
+  description = "Backup vault tags"
   default     = { "terraform" : "true" }
 }
 
@@ -65,5 +65,5 @@ variable "aws_backup_resources_names" {
 variable "aws_backup_selection_resource_name" {
   type        = string
   description = "Define the name of aws resources that displayed in plan"
-  default     = "MyResource"
+  default     = "MyResources"
 }
