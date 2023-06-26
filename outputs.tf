@@ -15,17 +15,17 @@ output "aws_backup_vault_tags_all" {
 }
 
 output "aws_backup_plan_id" {
-  value = aws_backup_plan.this.id
+  value = one(aws_backup_plan.this[*].id)
 }
 
 output "aws_backup_plan_arn" {
-  value = aws_backup_plan.this.arn
+  value = one(aws_backup_plan.this[*].arn)
 }
 
 output "aws_backup_plan_tags_all" {
-  value = aws_backup_plan.this.tags_all
+  value = one(aws_backup_plan.this[*].tags_all)
 }
 
 output "aws_backup_plan_version" {
-  value = aws_backup_plan.this.version
+  value = one(aws_backup_plan.this[*].version)
 }

@@ -54,7 +54,8 @@ resource "aws_backup_global_settings" "this" {
 }
 
 resource "aws_backup_plan" "this" {
-  name = "${var.aws_backup_resources_names}-Plan"
+  count = var.plan_enabled == true ? 1 : 0
+  name  = "${var.aws_backup_resources_names}-Plan"
 
   dynamic "rule" {
     for_each = length(var.rules) > 0 ? var.rules : local.single_rule
@@ -90,9 +91,10 @@ resource "aws_backup_plan" "this" {
 }
 
 resource "aws_backup_selection" "this" {
+  count        = var.plan_enabled == true ? 1 : 0
   iam_role_arn = var.aws_backup_iam_role_arn
   name         = var.aws_backup_selection_resource_name
-  plan_id      = aws_backup_plan.this.id
+  plan_id      = aws_backup_plan.this[count.index].id
 
   resources = var.aws_backup_selection_resources # select resources by arn
 }
