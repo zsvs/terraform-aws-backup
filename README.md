@@ -33,13 +33,13 @@ No modules.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_aws_backup_iam_role_arn"></a> [aws\_backup\_iam\_role\_arn](#input\_aws\_backup\_iam\_role\_arn) | IAM role ARN for AWS backup | `string` | n/a | yes |
-| <a name="input_aws_backup_plan_rule_name"></a> [aws\_backup\_plan\_rule\_name](#input\_aws\_backup\_plan\_rule\_name) | Name of AWS backup resource | `string` | `"MyBackupPlanRuleName"` | no |
 | <a name="input_aws_backup_resources_names"></a> [aws\_backup\_resources\_names](#input\_aws\_backup\_resources\_names) | Define name prefix of aws\_backup\_vault and aws\_backup\_plan | `string` | `"MyBackup"` | no |
-| <a name="input_aws_backup_selection_resource_name"></a> [aws\_backup\_selection\_resource\_name](#input\_aws\_backup\_selection\_resource\_name) | Define the name of aws resources that displayed in plan | `string` | `"MyResource"` | no |
+| <a name="input_aws_backup_selection_resource_name"></a> [aws\_backup\_selection\_resource\_name](#input\_aws\_backup\_selection\_resource\_name) | Define the name of aws resources that displayed in plan | `string` | `"MyResources"` | no |
 | <a name="input_aws_backup_selection_resources"></a> [aws\_backup\_selection\_resources](#input\_aws\_backup\_selection\_resources) | ARNs of aws resources that we want to backup | `list(string)` | `[]` | no |
-| <a name="input_backup_vault_tags"></a> [backup\_vault\_tags](#input\_backup\_vault\_tags) | Name of AWS backup resource | `map(string)` | <pre>{<br>  "terraform": "true"<br>}</pre> | no |
-| <a name="input_cross_account_backup_enabled"></a> [cross\_account\_backup\_enabled](#input\_cross\_account\_backup\_enabled) | Enable cross account AWS backup | `string` | `"true"` | no |
+| <a name="input_backup_vault_tags"></a> [backup\_vault\_tags](#input\_backup\_vault\_tags) | Backup vault tags | `map(string)` | <pre>{<br>  "terraform": "true"<br>}</pre> | no |
+| <a name="input_cross_account_backup_enabled"></a> [cross\_account\_backup\_enabled](#input\_cross\_account\_backup\_enabled) | Enable cross account AWS backup | `bool` | `true` | no |
 | <a name="input_kms_key_arn"></a> [kms\_key\_arn](#input\_kms\_key\_arn) | KMS key ARN for aws backup vault | `string` | n/a | yes |
+| <a name="input_plan_enabled"></a> [plan\_enabled](#input\_plan\_enabled) | Defines whether or not to create backup plan resources | `bool` | `true` | no |
 | <a name="input_profile"></a> [profile](#input\_profile) | AWS profile | `string` | `""` | no |
 | <a name="input_recovery_point_tags"></a> [recovery\_point\_tags](#input\_recovery\_point\_tags) | Defines recovery points tags | `map(string)` | <pre>{<br>  "terraform": "true"<br>}</pre> | no |
 | <a name="input_region"></a> [region](#input\_region) | AWS region param | `string` | `"eu-west-1"` | no |
