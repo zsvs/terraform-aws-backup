@@ -26,11 +26,11 @@ variable "aws_backup_selection_resources" {
   default     = []
 }
 
-# variable "aws_backup_plan_rule_name" {
-#   type        = string
-#   description = "Name of AWS backup rule"
-#   default     = "MyBackupPlanRuleName"
-# }
+variable "plan_enabled" {
+  type        = bool
+  description = "Defines whether or not to create backup plan resources"
+  default     = true
+}
 
 variable "backup_vault_tags" {
   type        = map(string)
@@ -51,9 +51,9 @@ variable "recovery_point_tags" {
 }
 
 variable "cross_account_backup_enabled" {
-  type        = string
+  type        = bool
   description = "Enable cross account AWS backup"
-  default     = "true"
+  default     = true
 }
 
 variable "aws_backup_resources_names" {
