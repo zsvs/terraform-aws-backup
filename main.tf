@@ -9,6 +9,9 @@
     lifecycle = {
       delete_after = 7
     }
+    copy_action = {
+      destination_vault_arn = null
+    }
   }]
 }
 
